@@ -78,7 +78,7 @@ class BuyingItensBase(BaseModel):
     description: str
     value: float
 
-class BuyingInstallmentsCreate(BaseModel):
+class BuyingListCreate(BaseModel):
     installments: int
     itens: List[BuyingItensBase]
     bank: str
@@ -92,16 +92,16 @@ class BuyingItensResponse(BuyingItensBase):
     # A LINHA MÁGICA: Colocamos aqui porque este schema lê do banco
     model_config = ConfigDict(from_attributes=True)
 
-class BuyingInstallmentsResponse(BuyingInstallmentsCreate):
-    pk_purch: int
-    fk_oh: int
-    value: float
-    date: str
-    p_month: str
-    category: str
-    payment_method: str
+# class BuyingInstallmentsResponse(BuyingInstallmentsCreate):
+#     pk_purch: int
+#     fk_oh: int
+#     value: float
+#     date: str
+#     p_month: str
+#     category: str
+#     payment_method: str
 
-    model_config = ConfigDict(from_attributes=True)
+#     model_config = ConfigDict(from_attributes=True)
 
 
 # Bank schemas
